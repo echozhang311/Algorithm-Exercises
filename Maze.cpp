@@ -69,7 +69,7 @@ int main(void)
 	// this is no longer the right way to go, otherwise we may go into a dead loop
 	maze[0][0] = NO_GO;
 
-    while ( ! history.empty()) 
+    while ( 1 ) 
 	{        
 		// arrived our destination
 		if ((step.nCol == (MAX_COL-1)) && (step.nRow == (MAX_ROW-1)))
@@ -127,10 +127,18 @@ int main(void)
 			// remove last step from history
 			history.pop_back();
             
-			// retrieve previous step
-			step = history.back();
+            if ( ! history.empty()) 
+            {
+                // retrieve previous step
+                step = history.back();
             
-            cout << "pop back (" << step.nRow << "," << step.nCol << ")" << endl;
+                cout << "pop back (" << step.nRow << "," << step.nCol << ")" << endl;
+            }
+            else
+            {
+                // empty. No way to go
+                break;
+            }
 		}
 	}
 
