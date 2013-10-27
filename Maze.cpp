@@ -56,7 +56,7 @@ void printPath(const vector<myPoint> & points)
 }
 
 int main(void)
-{
+{   
 	// starting point
 	myPoint step;
 	step.nCol = 0;
@@ -124,10 +124,11 @@ int main(void)
 		{
 			//no way to go, back track the path we've walked
 
-			// retrieve last step
-			step = history.back();
 			// remove last step from history
 			history.pop_back();
+            
+			// retrieve previous step
+			step = history.back();
             
             cout << "pop back (" << step.nRow << "," << step.nCol << ")" << endl;
 		}
