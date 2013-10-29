@@ -1,5 +1,3 @@
-#include <iostream>
-#include <vector>
 
 // Walk out of a 2D maze. 
 // We can go 4 directions: right, down, left, up.
